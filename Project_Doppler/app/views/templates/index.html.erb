@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/table.css">
+<img src="/Current Cisco Logo.png" style="display: block;margin-left:auto;margin-right:auto "></img>
+<h1>Listing Templates</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+  </tr>
+
+<% @templates.each do |template| %>
+  <tr>
+    <td><%= template.id %></td>
+    <td><%= link_to 'Show', template %></td>
+    <td><%= link_to 'Edit', edit_template_path(template) %></td>
+    <td><%= link_to 'Destroy', template, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', switches_path %>
+<%= link_to 'New Template', new_template_path %>

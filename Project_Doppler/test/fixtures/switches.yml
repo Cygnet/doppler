@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  env: MyString
+  row: MyString
+  rack: MyString
+  vendor: MyString
+  model: MyString
+  mac_add: MyString
+  hostname: MyString
+  lb_ip: MyString
+  int_vlan_10_ip: MyString
+  uplink_1_ip: MyString
+  uplink_2_ip: MyString
+  next-hop_ip_1: MyString
+  next-hop_ip_2: MyString
+
+two:
+  env: MyString
+  row: MyString
+  rack: MyString
+  vendor: MyString
+  model: MyString
+  mac_add: MyString
+  hostname: MyString
+  lb_ip: MyString
+  int_vlan_10_ip: MyString
+  uplink_1_ip: MyString
+  uplink_2_ip: MyString
+  next-hop_ip_1: MyString
+  next-hop_ip_2: MyString

@@ -1,0 +1,36 @@
+<head>
+<script>
+function textAreaAdjust(o) {
+    o.style.height = "1px";
+    o.style.height = (25+o.scrollHeight)+"px";
+}
+</script>
+</head>
+
+<%= form_for(@template) do |f| %>
+  <% if @template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% @template.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div>
+  <div class="field">
+    <%= f.label "ID" %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label "Content" %><br />
+    <%= f.text_area :content, :onkeydown => "textAreaAdjust(this)" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</div>
+<% end %>

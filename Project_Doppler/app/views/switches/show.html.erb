@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/form.css">
+<img src="/Current Cisco Logo.png" style="display: block;margin-left:auto;margin-right:auto "></img>
+
+<p id="notice"><%= notice %></p>
+
+<P>
+  <b>Config Template:</b>
+  <%= @switch.template_id %>
+</p>
+
+<p>
+  <b>Environment:</b>
+  <%= @switch.env %>
+</p>
+
+<p>
+  <b>Row:</b>
+  <%= @switch.row %>
+</p>
+
+<p>
+  <b>Rack:</b>
+  <%= @switch.rack %>
+</p>
+
+<p>
+  <b>Vendor:</b>
+  <%= @switch.vendor %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @switch.model %>
+</p>
+
+<p>
+  <b>Mac Address:</b>
+  <%= @switch.mac_add %>
+</p>
+
+<p>
+  <b>Hostname:</b>
+  <%= @switch.hostname %>
+</p>
+
+<p>
+  <b>Lb ip:</b>
+  <%= @switch.lb_ip %>
+</p>
+
+<p>
+  <b>Int vlan 10 ip:</b>
+  <%= @switch.int_vlan_10_ip %>
+</p>
+
+<p>
+  <b>Uplink 1 ip:</b>
+  <%= @switch.uplink_1_ip %>
+</p>
+
+<p>
+  <b>Uplink 2 ip:</b>
+  <%= @switch.uplink_2_ip %>
+</p>
+
+<p>
+  <b>Next-hop ip 1:</b>
+  <%= @switch.next_hop_ip_1 %>
+</p>
+
+<p>
+  <b>Next-hop ip 2:</b>
+  <%= @switch.next_hop_ip_2 %>
+</p>
+
+
+<%= link_to 'Edit', edit_switch_path(@switch) %> |
+<%= link_to 'Back', switches_path %>

@@ -1,0 +1,80 @@
+<%= form_for(@switch) do |f| %>
+  <% if @switch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@switch.errors.count, "error") %> prohibited this switch from being saved:</h2>
+
+      <ul>
+      <% @switch.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div>
+      <div class="field">
+        <%= f.label "Config Template" %><br />
+        <%= f.collection_select(:template_id, @templates, :id, :id) %>
+      </div>
+      <div class="sideByside">
+          <div class="field">
+            <%= f.label "Environment" %><br />
+            <%= f.text_field :env %>
+          </div>
+          <div class="field">
+            <%= f.label "Row ID" %><br />
+            <%= f.text_field :row %>
+          </div>
+          <div class="field">
+            <%= f.label "Rack ID" %><br />
+            <%= f.text_field :rack %>
+          </div>
+          <div class="field">
+            <%= f.label "Vendor" %><br />
+            <%= f.text_field :vendor %>
+          </div>
+          <div class="field">
+            <%= f.label "Model" %><br />
+            <%= f.text_field :model %>
+          </div>
+          <div class="field">
+            <%= f.label "Mac Address" %><br />
+            <%= f.text_field :mac_add %>
+          </div>
+          <div class="field">
+            <%= f.label "Host Name" %><br />
+            <%= f.text_field :hostname %>
+          </div>
+      </div>
+      <div class="sideByside">
+          <div class="field">
+            <%= f.label "LB IP" %><br />
+            <%= f.text_field :lb_ip %>
+          </div>
+          <div class="field">
+            <%= f.label "INT VLAN 10 IP" %><br />
+            <%= f.text_field :int_vlan_10_ip %>
+          </div>
+          <div class="field">
+            <%= f.label "Uplink 1 IP" %><br />
+            <%= f.text_field :uplink_1_ip %>
+          </div>
+          <div class="field">
+            <%= f.label "Uplink 2 IP" %><br />
+            <%= f.text_field :uplink_2_ip %>
+          </div>
+          <div class="field">
+            <%= f.label "Next-Hop IP 1" %><br />
+            <%= f.text_field :next_hop_ip_1 %>
+          </div>
+          <div class="field">
+            <%= f.label "Next-Hop IP 2" %><br />
+            <%= f.text_field :next_hop_ip_2 %>
+          </div>
+      </div>
+</div>
+<div class="actions">
+ <br style="clear: left;" />
+  <%= f.submit %>
+</div>
+<% end %>

@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/table.css">
+<img src="/Current Cisco Logo.png" style="display: block;margin-left:auto;margin-right:auto "></img>
+<h1>Listing Switches</h1>
+
+<table>
+  <tr>
+    <th>Environment</th>
+    <th>Row</th>
+    <th>Rack</th>
+    <th>Vendor</th>
+    <th>Model</th>
+    <th>Mac Address</th>
+    <th>Hostname</th>
+    <th>Lb ip</th>
+    <th>Int vlan 10 ip</th>
+    <th>Uplink 1 ip</th>
+    <th>Uplink 2 ip</th>
+    <th>Next-hop ip 1</th>
+    <th>Next-hop ip 2</th>
+    <th>Config Template</th>
+  </tr>
+
+<% @switches.each do |switch| %>
+  <tr>
+    <td><%= switch.env %></td>
+    <td><%= switch.row %></td>
+    <td><%= switch.rack %></td>
+    <td><%= switch.vendor %></td>
+    <td><%= switch.model %></td>
+    <td><%= switch.mac_add %></td>
+    <td><%= switch.hostname %></td>
+    <td><%= switch.lb_ip %></td>
+    <td><%= switch.int_vlan_10_ip %></td>
+    <td><%= switch.uplink_1_ip %></td>
+    <td><%= switch.uplink_2_ip %></td>
+    <td><%= switch.next_hop_ip_1 %></td>
+    <td><%= switch.next_hop_ip_2 %></td>
+    <td><%= switch.template_id %></td>
+    <td><%= link_to 'Config', generate_switch_path(switch) %></td>
+    <td><%= link_to 'Edit', edit_switch_path(switch) %></td>
+    <td><%= link_to 'Destroy', switch, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Switch', new_switch_path %>
+<%= link_to 'Templates', templates_path %>

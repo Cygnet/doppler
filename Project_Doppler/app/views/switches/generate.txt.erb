@@ -1,0 +1,15 @@
+<% text = @template.content %> 
+<% text = text.gsub("!hostname!", @switch.hostname) %> 
+<% text = text.gsub("!environment!", @switch.env) %>
+<% text = text.gsub("!row!", @switch.row) %>
+<% text = text.gsub("!rack!", @switch.rack) %>
+<% text = text.gsub("!model!", @switch.model) %>
+<% text = text.gsub("!vendor!", @switch.vendor) %>
+<% text = text.gsub("!mac_address!", @switch.mac_add) %>
+<% text = text.gsub("!lb_ip!", @switch.lb_ip) %>
+<% text = text.gsub("!int_vlan_10_ip!", @switch.int_vlan_10_ip) %>
+<% text = text.gsub("!uplink_1_ip!", @switch.uplink_1_ip) %>
+<% text = text.gsub("!uplink_2_ip!", @switch.uplink_2_ip) %>
+<% text = text.gsub("!nexthop_1!", @switch.next_hop_ip_1) %>
+<% text = text.gsub("!nexthop_2!", @switch.next_hop_ip_2) %>
+<%= text %>
