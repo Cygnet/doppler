@@ -5,54 +5,53 @@ Doppler Project PoC Code
 
 ====== Getting Started ======
 
-Install Ruby on Rails.
+<b>Install Ruby on Rails.</b>
 
-  <b>sudo gem install rails</b>
+sudo gem install rails
   
   
-Pull Git files.
+<b>Pull Git files.</b>
 
-  git clone git://github.com/Cygnet/doppler.git /targetDirectory
+git clone git://github.com/Cygnet/doppler.git /targetDirectory
   
 
-To install mySql on a debian based system.
+<b>To install mySql on a debian based system.</b>
 
-  sudo apt-get install mysql-server mysql-client
+sudo apt-get install mysql-server mysql-client
 
-Then set the root password.sdcscd
+<b>Then set the root password.sdcscd</b>
 
-  sudo mysqladmin -u root -h localhost password 'rootPassword'
+sudo mysqladmin -u root -h localhost password 'rootPassword'
 
+<b>To configure rails database, go to where you cloned the directory, and then edit config/database.yml. Under Development, Test, or Production add the following.</b>
 
-To configure rails database, go to where you cloned the directory, and then edit config/database.yml. Under Development, Test, or Production add the following.
-
-  adapter: mysql2</br>
-  encoding: utf8</br>
-  reconnect: false</br>
-  database: db/development  ##Anydatabase name</br>
-  pool: 5</br>
-  username: root            ##User with enough rights to create a database</br>
-  password: password        ##Password</br>
-  timeout: 5000</br>
+adapter: mysql2
+encoding: utf8
+reconnect: false
+database: db/development  ##Anydatabase name
+pool: 5
+username: root            ##User with enough rights to create a database
+password: password        ##Password
+timeout: 5000
   
-Then execute the following commands to install the libraries needed for mySql.
+<b>Then execute the following commands to install the libraries needed for mySql.</b>
 
-  sudo apt-get install libmysql-ruby
-  sudo apt-get install libmysqlclient-dev
-  sudo gem install mysql
-  sudo gem install activerecord-mysql2-adapter
+sudo apt-get install libmysql-ruby
+sudo apt-get install libmysqlclient-dev
+sudo gem install mysql
+sudo gem install activerecord-mysql2-adapter
 
-Then edit 'Gemfile' (in the root, where you cloned the git), and add the following lines.
+<b>Then edit 'Gemfile' (in the root, where you cloned the git), and add the following lines.</b>
 
-  gem 'mysql'
-  gem 'mysql2'
+gem 'mysql'
+gem 'mysql2'
 
 
-Then run the following commands, from the same directory.
-  rake db:create
-  rake db:schema:load
+<b>Then run the following commands, from the same directory.</b>
+rake db:create
+rake db:schema:load
   
-Change the username and password for the front end by editing config/users.csv
+<b>Change the username and password for the front end by editing config/users.csv</b>
   
-And finally, start the server
-  rails server
+<b>And finally, start the server</b>
+rails server
