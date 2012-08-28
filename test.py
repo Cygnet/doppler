@@ -1,10 +1,11 @@
 import urllib, urllib2
 
-url = 'http://172.20.231.32:3000/switches/mac1/generate.md5' # write ur URL here
+url = 'http://172.20.231.32:3000/switches/generate' # write ur URL here
 
 values = {'model' : 'nexus-3064', #write ur specific key/value pair
-          'hostname' : 'Aswitch'
-          }
+          'hostname' : 'Aswitch',
+	  'mac' : 'mac1'          
+}
 
 try:
     data = urllib.urlencode(values)          

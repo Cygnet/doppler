@@ -1,7 +1,7 @@
 ProjectDoppler::Application.routes.draw do
   resources :switches do
-    member do
-      post 'generate', :action => 'generate'
+    collection do
+      post 'generate', :action => 'gen', :defaults => { :format => :md5 }
     end
   end
   
