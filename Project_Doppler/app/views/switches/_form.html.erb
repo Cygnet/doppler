@@ -12,10 +12,6 @@
   <% end %>
 
 <div>
-      <div class="field">
-        <%= f.label "Config Template" %><br />
-        <%= f.collection_select(:template_id, @templates, :id, :id) %>
-      </div>
       <div class="sideByside">
           <div class="field">
             <%= f.label "Environment" %><br />
@@ -71,6 +67,10 @@
             <%= f.label "Next-Hop IP 2" %><br />
             <%= f.text_field :next_hop_ip_2 %>
           </div>
+      	  <div class="field">
+       	    <%= f.label "Config Template" %><br />
+            <%= f.text_field :template_id %>
+      	  </div>
       </div>
 </div>
 <div class="actions">

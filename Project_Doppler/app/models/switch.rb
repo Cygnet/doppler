@@ -4,4 +4,7 @@ class Switch < ActiveRecord::Base
 
   validates :mac_add, :presence => true,
                       :uniqueness => true
+  validates :hostname, :presence => true
+  validates :model, :presence => true
+  validates :template_id, :presence => true
 end

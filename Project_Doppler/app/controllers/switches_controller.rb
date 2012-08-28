@@ -51,7 +51,6 @@ class SwitchesController < ApplicationController
 
     respond_to do |format|
       if @switch.save
-        putTheFile @switch
         format.html { redirect_to switches_path, :notice => 'Switch was successfully created.' }
         format.json { render :json => @switch, :status => :created, :location => @switch }
       else
@@ -69,7 +68,6 @@ class SwitchesController < ApplicationController
 
     respond_to do |format|
       if @switch.update_attributes(params[:switch])
-        putTheFile @switch
         format.html { redirect_to switches_path, :notice => 'Switch was successfully updated.' }
         format.json { head :no_content }
       else
@@ -93,32 +91,20 @@ class SwitchesController < ApplicationController
 
   def generate
     @switch = Switch.find(params[:id])
-    @template = Template.find(@switch.template_id)
+
+    t = Net::TFTP.new(get_config("tftp_config", "address"))
+    t.getbinaryfile(@switch.template_id, @switch.template_id)
+    
+    file = File.open(@switch.template_id)   
+    @template = file.read
+
+    File.delete(@switch.template_id)
+
     @config_file = render_to_string :file => "switches/generate.txt.erb"
 
     respond_to do |format|
       format.html # generate.html.erb
       format.md5 { render :file => "switches/generate.txt.erb" }
     end
-  end
-
-  def putTheFile(s)
-    @switch = s
-    @template = Template.find(@switch.template_id)
-
-    filetoput = "%s.md5" % @switch.id
-
-    blah = render_to_string :file => "switches/generate.txt.erb"
-
-    blah = blah.gsub("\r\n", "\n")
-
-    open(filetoput, "wb") do |file|
-      file.write(blah)
-    end
-
-    t = Net::TFTP.new('localhost')
-    t.putbinaryfile(filetoput, filetoput)
-
-    File.delete(filetoput)
   end
 end
