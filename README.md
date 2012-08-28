@@ -52,5 +52,7 @@ Then run the following commands, from the same directory.
   rake db:create
   rake db:schema:load
   
+Change the username and password for the front end by editing config/users.csv
+  
 And finally, start the server
   rails server
