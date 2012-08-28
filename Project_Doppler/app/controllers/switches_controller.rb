@@ -96,7 +96,7 @@ class SwitchesController < ApplicationController
  
     puts @model
 
-    t = Net::TFTP.new(get_config("tftp_config", "address"))
+    t = Net::TFTP.new("172.20.231.32")
     file = nil
 
     filename = "%s.cfg" % @model 
