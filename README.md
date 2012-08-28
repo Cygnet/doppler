@@ -19,7 +19,7 @@ To install mySql on a debian based system.
 
   sudo apt-get install mysql-server mysql-client
 
-Then set the root password.
+Then set the root password.sdcscd
 
   sudo mysqladmin -u root -h localhost password 'rootPassword'
 
