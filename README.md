@@ -7,7 +7,7 @@ Doppler Project PoC Code
 
 Install Ruby on Rails.
 
-  '''sudo gem install rails'''
+  <b>sudo gem install rails</b>
   
   
 Pull Git files.
