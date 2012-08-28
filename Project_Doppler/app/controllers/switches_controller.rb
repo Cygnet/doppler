@@ -112,8 +112,11 @@ class SwitchesController < ApplicationController
         File.delete(filename)
 
         format.md5 { render :file => "switches/generate.txt.erb" }
-      rescue
+      rescue Exception e
         File.delete(filename)
+  
+        puts e.message
+
         format.md5 { render :file => "switches/fail.txt.erb" }
       end
     end
