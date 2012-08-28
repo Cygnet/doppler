@@ -2,7 +2,7 @@ import urllib, urllib2
 
 url = 'http://172.20.231.32:3000/switches/generate' # write ur URL here
 
-values = {'model' : 'nexus-3064', #write ur specific key/value pair
+values = {'model' : 'poc-14-02-38-its-N3048-02', #write ur specific key/value pair
           'hostname' : 'Aswitch',
 	  'mac' : 'mac1'          
 }

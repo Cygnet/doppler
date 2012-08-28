@@ -89,39 +89,6 @@ class SwitchesController < ApplicationController
     end
   end
 
-  def generate
-    @switch = Switch.find(params[:id])
-    @model = params[:model]
-    @hostname = params[:hostname]
- 
-    puts @model
-
-    t = Net::TFTP.new(get_config("tftp_config", "address"))
-    file = nil
-
-    filename = "%s.md5" % @model 
-
-    puts filename    
-
-    respond_to do |format|
-      begin
-        t.getbinaryfile(filename, filename)
-        file = File.open(filename)   
-        @template = file.read
-
-        File.delete(filename)
-
-        @config_file = render_to_string :file => "switches/generate.txt.erb"
-
-        format.html # generate.html.erb
-        format.md5 { render :file => "switches/generate.txt.erb" }
-      rescue
-        File.delete(filename)
-        format.html { redirect_to switches_path, :notice => 'Template does not exist.' } 
-      end
-    end
-  end
-
   def gen
     @switch = Switch.find(params[:mac])
     @model = params[:model]
@@ -132,7 +99,7 @@ class SwitchesController < ApplicationController
     t = Net::TFTP.new(get_config("tftp_config", "address"))
     file = nil
 
-    filename = "%s.md5" % @model 
+    filename = "%s.cfg" % @model 
 
     puts filename    
 
@@ -143,8 +110,6 @@ class SwitchesController < ApplicationController
         @template = file.read
 
         File.delete(filename)
-
-        @config_file = render_to_string :file => "switches/generate.txt.erb"
 
         format.md5 { render :file => "switches/generate.txt.erb" }
       rescue
