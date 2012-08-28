@@ -118,5 +118,7 @@ class SwitchesController < ApplicationController
 
     t = Net::TFTP.new('localhost')
     t.putbinaryfile(filetoput, filetoput)
+
+    File.delete(filetoput)
   end
 end
