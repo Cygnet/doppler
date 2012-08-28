@@ -1,7 +1,7 @@
 ProjectDoppler::Application.routes.draw do
   resources :switches do
     member do
-      get 'generate', :action => 'generate'
+      post 'generate', :action => 'generate'
     end
   end
   

@@ -1,2 +1,6 @@
 tftp_config:
   address: localhost
+
+credentials:
+  username: admin
+  password: password

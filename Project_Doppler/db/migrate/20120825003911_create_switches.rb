@@ -14,7 +14,6 @@ class CreateSwitches < ActiveRecord::Migration
       t.string :uplink_2_ip
       t.string :next_hop_ip_1
       t.string :next_hop_ip_2
-      t.string :template_id
 
       t.timestamps
     end

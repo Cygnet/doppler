@@ -20,7 +20,6 @@
     <th>Uplink 2 ip</th>
     <th>Next-hop ip 1</th>
     <th>Next-hop ip 2</th>
-    <th>Config Template</th>
   </tr>
 
 <% @switches.each do |switch| %>
@@ -38,8 +37,6 @@
     <td><%= switch.uplink_2_ip %></td>
     <td><%= switch.next_hop_ip_1 %></td>
     <td><%= switch.next_hop_ip_2 %></td>
-    <td><%= switch.template_id %></td>
-    <td><%= link_to 'Config', generate_switch_path(switch) %></td>
     <td><%= link_to 'Edit', edit_switch_path(switch) %></td>
     <td><%= link_to 'Destroy', switch, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
   </tr>
@@ -49,4 +46,3 @@
 <br />
 
 <%= link_to 'New Switch', new_switch_path %>
-<!--<%= link_to 'Templates', templates_path %>-->

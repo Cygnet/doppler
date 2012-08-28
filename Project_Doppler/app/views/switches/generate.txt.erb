@@ -1,4 +1,4 @@
-<% text = @template.content %> 
+<% text = @template %> 
 <% text = text.gsub("!hostname!", @switch.hostname) %> 
 <% text = text.gsub("!environment!", @switch.env) %>
 <% text = text.gsub("!row!", @switch.row) %>

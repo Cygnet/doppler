@@ -4,16 +4,20 @@ require "yaml"
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  userfile = "config/users.csv"
-  userfile = CSV.read(userfile)
-  userfile.find_all do |r|
-    puts "%s%s" % [r[1],r[0]]
-    http_basic_authenticate_with :name => r[0], :password => r[1]
-    break
-  end
-
   def get_config(data, field)
-    configfile = "config/doppler_config"
+    configfile = "config/doppler_config.yml"
+
+    parsed = begin 
+      YAML.load(File.open(configfile))
+    rescue ArgumentError => e
+      puts "Could not parse YAML: #{e.message}"
+    end
+
+    return parsed[data][field]
+  end 
+ 
+  def self.get_config(data, field)
+    configfile = "config/doppler_config.yml"
 
     parsed = begin 
       YAML.load(File.open(configfile))
@@ -23,4 +27,9 @@ class ApplicationController < ActionController::Base
 
     return parsed[data][field]
   end
+ 
+  username = get_config("credentials", "username")
+  password = get_config("credentials", "password")
+
+  #http_basic_authenticate_with :name => username, :password => password
 end
