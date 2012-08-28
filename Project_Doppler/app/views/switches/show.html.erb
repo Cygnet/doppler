@@ -3,76 +3,40 @@
 
 <p id="notice"><%= notice %></p>
 
-<P>
-  <b>Config Template:</b>
-  <%= @switch.template_id %>
-</p>
-
-<p>
-  <b>Environment:</b>
-  <%= @switch.env %>
-</p>
-
-<p>
-  <b>Row:</b>
-  <%= @switch.row %>
-</p>
-
-<p>
-  <b>Rack:</b>
-  <%= @switch.rack %>
-</p>
-
-<p>
-  <b>Vendor:</b>
-  <%= @switch.vendor %>
-</p>
-
-<p>
-  <b>Model:</b>
-  <%= @switch.model %>
-</p>
-
-<p>
-  <b>Mac Address:</b>
-  <%= @switch.mac_add %>
-</p>
-
-<p>
-  <b>Hostname:</b>
-  <%= @switch.hostname %>
-</p>
-
-<p>
-  <b>Lb ip:</b>
-  <%= @switch.lb_ip %>
-</p>
-
-<p>
-  <b>Int vlan 10 ip:</b>
-  <%= @switch.int_vlan_10_ip %>
-</p>
-
-<p>
-  <b>Uplink 1 ip:</b>
-  <%= @switch.uplink_1_ip %>
-</p>
-
-<p>
-  <b>Uplink 2 ip:</b>
-  <%= @switch.uplink_2_ip %>
-</p>
-
-<p>
-  <b>Next-hop ip 1:</b>
-  <%= @switch.next_hop_ip_1 %>
-</p>
-
-<p>
-  <b>Next-hop ip 2:</b>
-  <%= @switch.next_hop_ip_2 %>
-</p>
-
+<table border="1">
+  <tr>
+    <th>Environment</th>
+    <th>Row</th>
+    <th>Rack</th>
+    <th>Vendor</th>
+    <th>Model</th>
+    <th>Mac Address</th>
+    <th>Hostname</th>
+    <th>Lb ip</th>
+    <th>Int vlan 10 ip</th>
+    <th>Uplink 1 ip</th>
+    <th>Uplink 2 ip</th>
+    <th>Next-hop ip 1</th>
+    <th>Next-hop ip 2</th>
+    <th>Config Template</th>
+  </tr>
+  <tr>
+    <td><%= @switch.env %></td>
+    <td><%= @switch.row %></td>
+    <td><%= @switch.rack %></td>
+    <td><%= @switch.vendor %></td>
+    <td><%= @switch.model %></td>
+    <td><%= @switch.mac_add %></td>
+    <td><%= @switch.hostname %></td>
+    <td><%= @switch.lb_ip %></td>
+    <td><%= @switch.int_vlan_10_ip %></td>
+    <td><%= @switch.uplink_1_ip %></td>
+    <td><%= @switch.uplink_2_ip %></td>
+    <td><%= @switch.next_hop_ip_1 %></td>
+    <td><%= @switch.next_hop_ip_2 %></td>
+    <td><%= @switch.template_id %></td>
+  </tr>
+</table>
 
 <%= link_to 'Edit', edit_switch_path(@switch) %> |
 <%= link_to 'Back', switches_path %>

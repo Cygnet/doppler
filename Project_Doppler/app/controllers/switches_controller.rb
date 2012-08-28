@@ -52,7 +52,7 @@ class SwitchesController < ApplicationController
     respond_to do |format|
       if @switch.save
         putTheFile @switch
-        format.html { redirect_to @switch, :notice => 'Switch was successfully created.' }
+        format.html { redirect_to switches_path, :notice => 'Switch was successfully created.' }
         format.json { render :json => @switch, :status => :created, :location => @switch }
       else
         format.html { render :action => "new" }
@@ -70,7 +70,7 @@ class SwitchesController < ApplicationController
     respond_to do |format|
       if @switch.update_attributes(params[:switch])
         putTheFile @switch
-        format.html { redirect_to @switch, :notice => 'Switch was successfully updated.' }
+        format.html { redirect_to switches_path, :notice => 'Switch was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -86,7 +86,7 @@ class SwitchesController < ApplicationController
     @switch.destroy
 
     respond_to do |format|
-      format.html { redirect_to switches_url }
+      format.html { redirect_to switches_path, :notice => 'Switch was sucessfully destroyed.' }
       format.json { head :no_content }
     end
   end

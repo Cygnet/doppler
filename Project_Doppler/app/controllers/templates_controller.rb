@@ -48,7 +48,7 @@ class TemplatesController < ApplicationController
 
     respond_to do |format|
       if @template.save
-        format.html { redirect_to @template, :notice => 'Template was successfully created.' }
+        format.html { redirect_to templates_path, :notice => 'Template was successfully created.' }
         format.json { render :json => @template, :status => :created, :location => @template }
       else
         format.html { render :action => "new" }
@@ -64,7 +64,7 @@ class TemplatesController < ApplicationController
 
     respond_to do |format|
       if @template.update_attributes(params[:template])
-        format.html { redirect_to @template, :notice => 'Template was successfully updated.' }
+        format.html { redirect_to templates_path, :notice => 'Template was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -80,7 +80,7 @@ class TemplatesController < ApplicationController
     @template.destroy
 
     respond_to do |format|
-      format.html { redirect_to switches_url }
+      format.html { redirect_to templates_path, :notice => 'Template was sucessfully destroyed.' }
       format.json { head :no_content }
     end
   end

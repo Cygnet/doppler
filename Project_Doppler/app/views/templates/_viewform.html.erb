@@ -22,7 +22,7 @@ function textAreaAdjust(o) {
   <% end %>
  
   <div class="field">
-    <%= f.label "Content" %><br />
-    <%= f.text_area :content, :readonly => true, :onchange => "textAreaAdjust(this)"  %>
+    <%= f.text_area :content, :readonly => true %>
+    <script>textAreaAdjust(document.getElementById("template_content"))</script>
   </div>
 <% end %>

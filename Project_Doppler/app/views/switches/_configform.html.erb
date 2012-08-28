@@ -1,3 +1,13 @@
+<head>
+<script>
+function textAreaAdjust(o) {
+    o.style.height = "1px";
+    o.style.height = (25+o.scrollHeight)+"px";
+}
+</script>
+</head>
+
 <div>
-<textarea readonly = "true" rows = "25"><%= @config_file %></textarea> 
+<textarea id="template_content" readonly = "true"><%= @config_file %></textarea> 
+<script>textAreaAdjust(document.getElementById("template_content"))</script>
 </div>
