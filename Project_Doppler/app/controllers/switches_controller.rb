@@ -107,6 +107,9 @@ class SwitchesController < ApplicationController
       begin
         t.getbinaryfile(filename, filename)
         file = File.open(filename)   
+        
+        puts "I havn't failed yet" 
+
         @template = file.read
 
         File.delete(filename)
