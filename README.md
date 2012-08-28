@@ -26,14 +26,14 @@ Then set the root password.
 
 To configure rails database, go to where you cloned the directory, and then edit config/database.yml. Under Development, Test, or Production add the following.
 
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: db/development  ##Anydatabase name
-  pool: 5
-  username: root            ##User with enough rights to create a database
-  password: password        ##Password
-  timeout: 5000
+  adapter: mysql2</br>
+  encoding: utf8</br>
+  reconnect: false</br>
+  database: db/development  ##Anydatabase name</br>
+  pool: 5</br>
+  username: root            ##User with enough rights to create a database</br>
+  password: password        ##Password</br>
+  timeout: 5000</br>
   
 Then execute the following commands to install the libraries needed for mySql.
 
