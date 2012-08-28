@@ -1,4 +1,56 @@
-doppler
+Doppler
 =======
 
 Doppler Project PoC Code
+
+====== Getting Started ======
+
+Install Ruby on Rails.
+
+  sudo gem install rails
+  
+  
+Pull Git files.
+
+  git clone git://github.com/Cygnet/doppler.git /targetDirectory
+  
+
+To install mySql on a debian based system.
+
+  sudo apt-get install mysql-server mysql-client
+
+Then set the root password.
+
+  sudo mysqladmin -u root -h localhost password 'rootPassword'
+
+
+To configure rails database, go to where you cloned the directory, and then edit config/database.yml. Under Development, Test, or Production add the following.
+
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: db/development  ##Anydatabase name
+  pool: 5
+  username: root            ##User with enough rights to create a database
+  password: password        ##Password
+  timeout: 5000
+  
+Then execute the following commands to install the libraries needed for mySql.
+
+  sudo apt-get install libmysql-ruby
+  sudo apt-get install libmysqlclient-dev
+  sudo gem install mysql
+  sudo gem install activerecord-mysql2-adapter
+
+Then edit 'Gemfile' (in the root, where you cloned the git), and add the following lines.
+
+  gem 'mysql'
+  gem 'mysql2'
+
+
+Then run the following commands, from the same directory.
+  rake db:create
+  rake db:schema:load
+  
+And finally, start the server
+  rails server
