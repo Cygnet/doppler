@@ -114,7 +114,7 @@ class SwitchesController < ApplicationController
         format.md5 { render :file => "switches/generate.txt.erb" }
       rescue
         File.delete(filename)
-        format.json {}
+        format.json { head :no_content }
       end
     end
   end 
