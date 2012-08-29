@@ -96,7 +96,9 @@ class SwitchesController < ApplicationController
  
     puts @model
 
-    t = Net::TFTP.new(get_config("tftp_config", "address"))
+    puts "-%s-" % get_config("tftp_config", "address")
+
+    # t = Net::TFTP.new(get_config("tftp_config", "address"))
     file = nil
 
     filename = "%s.cfg" % @model 
@@ -105,7 +107,8 @@ class SwitchesController < ApplicationController
 
     respond_to do |format|
       begin
-        t.getbinaryfile(filename, filename)
+        # t.getbinaryfile(filename, filename)
+        %x[tftp 172.20.231.32 -c get #{filename}]
         file = File.open(filename)   
         
         puts "I havn't failed yet" 
