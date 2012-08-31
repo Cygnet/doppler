@@ -53,4 +53,7 @@ rake db:schema:load
   
 <b>And finally, start the server</b>
 
-rails server  
+rails server
+
+<b> To start in daemon mode </b>
+rails server -d   
