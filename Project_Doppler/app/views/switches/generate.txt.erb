@@ -12,4 +12,5 @@
 <% text = text.gsub("!uplink_2_ip!", @switch.uplink_2_ip) %>
 <% text = text.gsub("!nexthop_1!", @switch.next_hop_ip_1) %>
 <% text = text.gsub("!nexthop_2!", @switch.next_hop_ip_2) %>
+<% text = text.gsub("&quot;", "\"") %>
 <%= text %>

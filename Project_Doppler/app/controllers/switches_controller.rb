@@ -108,12 +108,13 @@ class SwitchesController < ApplicationController
     respond_to do |format|
       begin
         # t.getbinaryfile(filename, filename)
-        %x[tftp 172.20.231.32 -c get #{filename}]
+        %x[tftp 172.25.187.212 -c get #{filename}]
         file = File.open(filename)   
         
         puts "I havn't failed yet" 
 
         @template = file.read
+        puts @template
 
         File.delete(filename)
 
@@ -125,5 +126,65 @@ class SwitchesController < ApplicationController
         format.md5 { render :file => "switches/fail.txt.erb" }
       end
     end
-  end 
+  end
+
+  def req
+    @switch = Switch.find(params[:mac])
+    @model = params[:model]
+    @hostname = params[:hostname]
+
+    file = nil
+    filename = "%s.cfg" % @model
+    filename2 = "%s.cfg" % params[:mac]
+
+    respond_to do |format|
+     begin
+        puts "Begin" 
+        %x[tftp 172.25.187.212 -c get #{filename}]
+        file = File.open(filename)
+        @template = file.read
+        File.delete(filename)         
+        puts "Got Template"
+ 
+        con = render_to_string :file => "switches/generate.txt.erb"
+        puts "Generated config!"        
+
+        file2 = File.open(filename2, "w+")
+        file2.puts(con)
+        puts "Wrote config file!"
+      
+        %x[tftp 172.25.187.212 -c put #{filename2} cfg/#{filename2}]
+        File.delete(filename2)
+         
+        @path = "tftp://172.25.187.212/cfg/%s" % filename2
+          
+        format.md5 { render :file => "switches/cfgpath.txt.erb" }     
+      rescue Exception => e
+        puts "ERROR: %s" % e.message
+        format.md5 { render :file => "switches/fail.txt.erb" }
+      end
+    end 
+  end   
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

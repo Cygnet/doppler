@@ -2,6 +2,7 @@ ProjectDoppler::Application.routes.draw do
   resources :switches do
     collection do
       post 'generate', :action => 'gen', :defaults => { :format => :md5 }
+      post 'cfgpath', :action => 'req', :defaults => { :format => :md5 }
     end
   end
   

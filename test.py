@@ -1,10 +1,10 @@
 import urllib, urllib2
 
-url = 'http://172.20.231.32:3000/switches/generate' # write ur URL here
+url = 'http://172.25.187.212:3000/switches/generate' # write ur URL here
 
 values = {'model' : 'poc-14-02-38-its-N3048-02', #write ur specific key/value pair
           'hostname' : 'Aswitch',
-	  'mac' : 'mac1'          
+	  'mac' : '1'          
 }
 
 try:
